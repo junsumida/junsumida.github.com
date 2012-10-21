@@ -4,7 +4,7 @@
   <title><![CDATA[path to clean code]]></title>
   <link href="http://junsumida.github.com/atom.xml" rel="self"/>
   <link href="http://junsumida.github.com/"/>
-  <updated>2012-10-21T16:46:35+09:00</updated>
+  <updated>2012-10-21T17:04:21+09:00</updated>
   <id>http://junsumida.github.com/</id>
   <author>
     <name><![CDATA[junsumida]]></name>
@@ -12,5 +12,51 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[the first post]]></title>
+    <link href="http://junsumida.github.com/blog/2012/10/21/the-first-post/"/>
+    <updated>2012-10-21T16:52:00+09:00</updated>
+    <id>http://junsumida.github.com/blog/2012/10/21/the-first-post</id>
+    <content type="html"><![CDATA[<h1>heading 1</h1>
+
+<h1>the other heading 1</h1>
+
+<h2>heading 2</h2>
+
+<h2>the other heading 2</h2>
+
+<blockquote><p>&#8220;this is not an actual quote but i just wanted to put this in the article&#8230;&#8221;</p></blockquote>
+
+<hr />
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rm -rf /</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">func</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>  <span class="nx">fucntion</span> <span class="nx">ILOVEJS</span><span class="p">(){</span>
+</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">meth</span> <span class="o">=</span> <span class="nx">funciton</span><span class="p">(){</span>
+</span><span class='line'>          <span class="c1">// do nothing lol</span>
+</span><span class='line'>      <span class="p">}</span>        
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="k">return</span> <span class="k">new</span> <span class="nx">IlOVEJS</span><span class="p">()</span>
+</span><span class='line'><span class="p">})(</span><span class="k">this</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
   
 </feed>
