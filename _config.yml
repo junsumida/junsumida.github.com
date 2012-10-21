@@ -2,10 +2,10 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://yoursite.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+url: http://junsumida.github.com
+title: path to clean code
+subtitle: "i\'d rather run than walk"
+author: junsumida 
 simple_search: http://google.com/search
 description:
 
