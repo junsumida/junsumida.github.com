@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: octpress | path to clean code]]></title>
+  <link href="http://junsumida.github.com/blog/categories/octpress/atom.xml" rel="self"/>
+  <link href="http://junsumida.github.com/"/>
+  <updated>2012-11-02T02:00:16+09:00</updated>
+  <id>http://junsumida.github.com/</id>
+  <author>
+    <name><![CDATA[junsumida]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Octpressのインストール失敗から、リカバリ]]></title>
+    <link href="http://junsumida.github.com/blog/2012/11/01/installing-octpress-and-creating-my-new-blog/"/>
+    <updated>2012-11-01T23:46:00+09:00</updated>
+    <id>http://junsumida.github.com/blog/2012/11/01/installing-octpress-and-creating-my-new-blog</id>
+    <content type="html"><![CDATA[<p>Mac OSX 10.7.5の環境です。
+前半は、失敗した記録なので、決してまねしないでね。</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ruby --version&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>=> ruby 1.9.3p194 (2012-04-20 revision 35410) [x86_64-darwin11.3.0]&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>1.9.3以上であることを確認。パッチのバージョンは、まあ大丈夫からと思って放置。</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git clone git://github.com/imathis/octopress.git octopress</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>最後に設定した"octpress"の部分は、myblogとか好きな名前で大丈夫。</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd octopress/
+</span><span class='line'>Do you wish to trust this .rvmrc file? (/Users/sjun/octopress/.rvmrc)
+</span><span class='line'>y[es], n[o], v[iew], c[ancel]> y
+</span><span class='line'>ruby-1.9.3-p286 is not installed.
+</span><span class='line'>To install do: 'rvm install ruby-1.9.3-p286'</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>あれ、怒られた。</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ruby -v&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>=> ruby 1.8.7 (2012-02-08 patchlevel 358) [universal-darwin11.0]&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>???
+どうやら、rvmのrubyじゃなくて、はじめからインストールされてるやつにPATHが通ってる。
+とりあえず、rvmでちゃんとインストールされてるかだけ確認。</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rvm list&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>=* ruby-1.9.3-p194 [ x86_64 ]&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>=> - current&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>=* - current &amp;&amp; default&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>* - default&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>あきらかによろしくないけど、無理矢理進める。</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ bundle install
+</span><span class='line'>error loading "/Users/sjun/.rvm/gems/ruby-1.9.3-p194@global/gems/rubygems-bundler-0.9.2/lib/rubygems_plugin.rb":&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>Older rubygems-bundler found, please uninstall it with:&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>GEM_HOME="/Users/sjun/.rvm/gems/ruby-1.9.3-p194@global" gem uninstall -ax rubygems-bundler -v 0.9.2
+</span><span class='line'>
+</span><span class='line'> (RuntimeError)
+</span><span class='line'> Fetching gem metadata from http://rubygems.org/.
+</span><span class='line'> Error Bundler::HTTPError during request to dependency API
+</span><span class='line'> Fetching full source index from http://rubygems.org/
+</span><span class='line'> ^C
+</span><span class='line'> Quitting...
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>なんか怒られたw</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ GEM_HOME="/Users/sjun/.rvm/gems/ruby-1.9.3-p194@global" gem uninstall -ax rubygems-bundler -v 0.9.2
+</span><span class='line'>error loading "/Users/sjun/.rvm/gems/ruby-1.9.3-p194@global/gems/rubygems-bundler-0.9.2/lib/rubygems_plugin.rb":&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>Older rubygems-bundler found, please uninstall it with:&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>gem uninstall -ax rubygems-bundler -v 0.9.2
+</span><span class='line'>
+</span><span class='line'> (RuntimeError)
+</span><span class='line'> Removing noexec
+</span><span class='line'> Successfully uninstalled rubygems-bundler-0.9.2
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>とりあえず、怒られてるgemを削除
+気をとりなおして、bundlerをインストール。</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ gem install bundler&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>Successfully installed bundler-1.2.1
+</span><span class='line'>1 gem installed
+</span><span class='line'>ERROR:  While executing gem ... (ArgumentError)&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>undefined class/module Encoding
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>なんかもう諦めたくなってきた。</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ gem update
+</span><span class='line'>Updating installed gems
+</span><span class='line'>Updating gorillib
+</span><span class='line'>Successfully installed configliere-0.4.17
+</span><span class='line'>Successfully installed gorillib-0.4.2
+</span><span class='line'>Updating net-ssh
+</span><span class='line'>Successfully installed net-ssh-2.6.1
+</span><span class='line'>Gems updated: configliere, gorillib, net-ssh
+</span><span class='line'>ERROR:  While executing gem ... (ArgumentError)&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>undefined class/module Encoding
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>エラー、それでも無理矢理すすめる。</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ bundle install
+</span><span class='line'>Fetching gem metadata from http://rubygems.org/.
+</span><span class='line'>Error Bundler::HTTPError during request to dependency API
+</span><span class='line'>Fetching full source index from http://rubygems.org/
+</span><span class='line'>Using rake (0.9.2.2)
+</span><span class='line'>Installing RedCloth (4.2.9) with native extensions
+</span><span class='line'>Installing posix-spawn (0.3.6) with native extensions
+</span><span class='line'>Installing albino (1.3.3)
+</span><span class='line'>Installing blankslate (2.1.2.4)
+</span><span class='line'>Installing chunky_png (1.2.5)
+</span><span class='line'>Installing fast-stemmer (1.0.1) with native extensions
+</span><span class='line'>Installing classifier (1.3.3)
+</span><span class='line'>Installing fssm (0.2.9)
+</span><span class='line'>Installing sass (3.1.20)
+</span><span class='line'>Installing compass (0.12.2)
+</span><span class='line'>Installing directory_watcher (1.4.1)
+</span><span class='line'>Installing ffi (1.0.11) with native extensions
+</span><span class='line'>Installing haml (3.1.6)
+</span><span class='line'>Installing kramdown (0.13.7)
+</span><span class='line'>Installing liquid (2.3.0)
+</span><span class='line'>Gem::InstallError: liquid requires RubyGems version >= 1.3.7. Try 'gem update --system' to update RubyGems itself.
+</span><span class='line'>An error occurred while installing liquid (2.3.0), and Bundler cannot continue.
+</span><span class='line'>Make sure that &lt;code>gem install liquid -v '2.3.0'&lt;/code> succeeds before bundling.</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>この辺りで、gemとかrvmを全くアップデートしてないことに気づく。</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem update --system
+</span><span class='line'>Updating RubyGems
+</span><span class='line'>Updating rubygems-update
+</span><span class='line'>Successfully installed rubygems-update-1.8.24
+</span><span class='line'>Updating RubyGems to 1.8.24
+</span><span class='line'>Installing RubyGems 1.8.24
+</span><span class='line'>ERROR:  While executing gem ... (Errno::EACCES)&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>Permission denied - /Library/Ruby/Site/1.8/gauntlet_rubygems.rb    
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>このあたりで、sudoしてないせいかもしれないと思いはじめる。</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo gem update --system
+</span><span class='line'>Password:
+</span><span class='line'>Updating RubyGems
+</span><span class='line'>Updating rubygems-update
+</span><span class='line'>Successfully installed rubygems-update-1.8.24
+</span><span class='line'>Updating RubyGems to 1.8.24
+</span><span class='line'>Installing RubyGems 1.8.24
+</span><span class='line'>RubyGems 1.8.24 installed&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>== 1.8.24 / 2012-04-27&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;ul>
+</span><span class='line'>&lt;li>&lt;p>1 bug fix:&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;ul>
+</span><span class='line'>&lt;li>Install the .pem files properly. Fixes #320
+</span><span class='line'>
+</span><span class='line'>&lt;ul>
+</span><span class='line'>&lt;li>Remove OpenSSL dependency from the http code path&lt;/li>
+</span><span class='line'>&lt;/ul>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>&lt;hr />
+</span><span class='line'>
+</span><span class='line'>&lt;p>RubyGems installed the following executables:&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code> /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/gem
+</span><span class='line'>&lt;/code>&lt;/pre>&lt;/li>
+</span><span class='line'>&lt;/ul>
+</span><span class='line'>&lt;/li>
+</span><span class='line'>&lt;/ul>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>お。通った。</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bundle install
+</span><span class='line'>Fetching gem metadata from http://rubygems.org/.
+</span><span class='line'>Error Bundler::HTTPError during request to dependency API
+</span><span class='line'>Fetching full source index from http://rubygems.org/
+</span><span class='line'>.
+</span><span class='line'>.
+</span><span class='line'>(略)
+</span><span class='line'>.
+</span><span class='line'>.&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>Using bundler (1.2.1)Your bundle is complete! Use &lt;code>bundle show [gemname]&lt;/code> to see where a bundled gem is installed.</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ gem update
+</span><span class='line'>.
+</span><span class='line'>.
+</span><span class='line'>.
+</span><span class='line'>ERROR:  While executing gem ... (ArgumentError)&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>undefined class/module Encoding
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>まだダメか。</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo gem update
+</span><span class='line'>Updating installed gems
+</span><span class='line'>Updating actionmailer
+</span><span class='line'>Fetching: activesupport-3.2.8.gem (100%)
+</span><span class='line'>.
+</span><span class='line'>.
+</span><span class='line'>(以下大量のパッケージがインストールされる)
+</span><span class='line'>.
+</span><span class='line'>.
+</span><span class='line'>Building native extensions.  This could take a while…
+</span><span class='line'>(時間かかり過ぎ)
+</span><span class='line'>.
+</span><span class='line'>.</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>パッケージとRDocが大量にインストールされてびっくりしたけど、
+無事終わった!!</p>
+
+<p>しかし、心配になってもう一度やる。</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ sudo gem update
+</span><span class='line'>Password:
+</span><span class='line'>Updating installed gems
+</span><span class='line'>Nothing to update</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>これは期待 :3 :3 :3</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ bundle install
+</span><span class='line'>.
+</span><span class='line'>.
+</span><span class='line'>.
+</span><span class='line'>Your bundle is complete! Use &lt;code>bundle show [gemname]&lt;/code> to see where a bundled gem is installed.</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>よし :)</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake install&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h2>Copying classic theme into ./source and ./sass&lt;/h2>
+</span><span class='line'>
+</span><span class='line'>&lt;p>mkdir -p source
+</span><span class='line'>cp -r .themes/classic/source/. source
+</span><span class='line'>mkdir -p sass
+</span><span class='line'>cp -r .themes/classic/sass/. sass
+</span><span class='line'>mkdir -p source/_posts
+</span><span class='line'>mkdir -p public
+</span><span class='line'>23:05:37 ~/octopress</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>完了した！
+が、このあとちゃんと動かない...
+諦めて、rubyを更新、rm -rfして、再度git cloneしてくる。</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake generate&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h2>Generating Site with Jekyll&lt;/h2>
+</span><span class='line'>
+</span><span class='line'>&lt;p>directory source/stylesheets/
+</span><span class='line'>   create source/stylesheets/screen.css
+</span><span class='line'>   Configuration from /Users/sjun/octopress/_config.yml
+</span><span class='line'>   /Users/sjun/octopress/plugins/category_generator.rb:109: warning: regexp has invalid interval
+</span><span class='line'>   /Users/sjun/octopress/plugins/category_generator.rb:109: warning: regexp has &lt;code>' without escape
+</span><span class='line'>   /Users/sjun/octopress/plugins/category_generator.rb:146: warning: regexp has invalid interval
+</span><span class='line'>   /Users/sjun/octopress/plugins/category_generator.rb:146: warning: regexp has&lt;/code>' without escape
+</span><span class='line'>   /Users/sjun/.rvm/gems/ruby-1.9.3-p194/gems/jekyll-0.11.2/bin/../lib/jekyll/site.rb:76:in `require': /Users/sjun/octopress/plugins/image_tag.rb:27: undefined (?...) sequence: /(?&lt;class>\S.*\s+)?(?&lt;src>(?:https?:\/\/|\/|\S+\/)\S+)(?:\s+(?&lt;width>\d+))?(?:\s+(?&lt;height>\d+))?(?&lt;title>\s+.+)?/ (SyntaxError)
+</span><span class='line'>   /Users/sjun/octopress/plugins/image_tag.rb:29: undefined (?...) sequence: /(?:"|''")(?&lt;title>[&lt;sup>"''"]+)?(?:"|''")\s+(?:"|''")(?&lt;alt>[&lt;sup>"''"]+)?(?:"|''")/&lt;/sup>&lt;/sup>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>    from /Users/sjun/.rvm/gems/ruby-1.9.3-p194/gems/jekyll-0.11.2/bin/../lib/jekyll/site.rb:76:in `setup'
+</span><span class='line'>         from /Users/sjun/.rvm/gems/ruby-1.9.3-p194/gems/jekyll-0.11.2/bin/../lib/jekyll/site.rb:75:in `each'
+</span><span class='line'>              from /Users/sjun/.rvm/gems/ruby-1.9.3-p194/gems/jekyll-0.11.2/bin/../lib/jekyll/site.rb:75:in `setup'
+</span><span class='line'>                   from /Users/sjun/.rvm/gems/ruby-1.9.3-p194/gems/jekyll-0.11.2/bin/../lib/jekyll/site.rb:30:in `initialize'
+</span><span class='line'>                        from /Users/sjun/.rvm/gems/ruby-1.9.3-p194/gems/jekyll-0.11.2/bin/jekyll:224:in `new'
+</span><span class='line'>                             from /Users/sjun/.rvm/gems/ruby-1.9.3-p194/gems/jekyll-0.11.2/bin/jekyll:224
+</span><span class='line'>                                  from /Users/sjun/.rvm/gems/ruby-1.9.3-p194/bin/jekyll:23:in `load'
+</span><span class='line'>                                       from /Users/sjun/.rvm/gems/ruby-1.9.3-p194/bin/jekyll:23
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>あれ？やばいかも...</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ sudo rake generate
+</span><span class='line'>Could not find RedCloth-4.2.9 in any of the sources
+</span><span class='line'>Run &lt;code>bundle install&lt;/code> to install missing gems.</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>んん？</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo gem install RedCloth
+</span><span class='line'>Fetching: RedCloth-4.2.9.gem (100%)
+</span><span class='line'>Building native extensions.  This could take a while...
+</span><span class='line'>Successfully installed RedCloth-4.2.9
+</span><span class='line'>1 gem installed
+</span><span class='line'>Installing ri documentation for RedCloth-4.2.9...
+</span><span class='line'>Installing RDoc documentation for RedCloth-4.2.9...</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo rake generate
+</span><span class='line'>Could not find posix-spawn-0.3.6 in any of the sources
+</span><span class='line'>Run &lt;code>bundle install&lt;/code> to install missing gems.</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>こいつもインストールした。</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake generate
+</span><span class='line'>rake aborted!&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h3>You haven't set anything up yet. First run &lt;code>rake install&lt;/code> to set up an Octopress theme.&lt;/h3>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake install
+</span><span class='line'>rake generate
+</span><span class='line'>rake deploy
+</span><span class='line'>rake setup_github_pages
+</span><span class='line'>add .
+</span><span class='line'>git push origin source</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>多少記憶と記録があやふや。</p>
+]]></content>
+  </entry>
+  
+</feed>
