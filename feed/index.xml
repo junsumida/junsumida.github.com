@@ -4,7 +4,7 @@
   <title><![CDATA[path to clean code]]></title>
   <link href="http://junsumida.github.com/feed" rel="self"/>
   <link href="http://junsumida.github.com/"/>
-  <updated>2012-11-02T02:00:16+09:00</updated>
+  <updated>2012-11-02T02:03:14+09:00</updated>
   <id>http://junsumida.github.com/</id>
   <author>
     <name><![CDATA[junsumida]]></name>
@@ -358,7 +358,7 @@
 </span><span class='line'>.</span></code></pre></td></tr></table></div></figure>
 
 
-<p>パッケージとRDocが大量にインストールされてびっくりしたけど、
+<p>パッケージとRDocが大量にインストールされて驚いたけど、
 無事終わった!!</p>
 
 <p>しかし、心配になってもう一度やる。</p>
@@ -517,7 +517,8 @@
 </span><span class='line'>git push origin source</span></code></pre></td></tr></table></div></figure>
 
 
-<p>多少記憶と記録があやふや。</p>
+<p>多少記憶と記録があやふや。
+とりあえず、versionはあわせることとupdateを先にすることを身にしみて理解した。</p>
 ]]></content>
   </entry>
   
