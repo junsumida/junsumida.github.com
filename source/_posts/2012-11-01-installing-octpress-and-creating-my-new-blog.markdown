@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "Octpressのインストール失敗から、リカバリ"
+title: "Octpressのインストール失敗と成功"
 date: 2012-11-01 23:46
 comments: true
 categories: octpress
 ---
 
 Mac OSX 10.7.5の環境です。
-前半は、失敗した記録なので、決してまねしないでね。
+散々失敗した記録なので、決してまねしないでね。
 
 {% codeblock %}
 ruby --version
@@ -330,4 +330,15 @@ git push origin source
 {% endcodeblock %}
 
 多少記憶と記録があやふや。
+
 とりあえず、versionはあわせることとupdateを先にすることを身にしみて理解した。
+
+
+-----
+####参考にしたもの
+* [http://stackoverflow.com/questions/11488086/ruby-could-not-find-redcloth-4-2-9](http://stackoverflow.com/questions/11488086/ruby-could-not-find-redcloth-4-2-9)
+* [http://ojima-h.github.com/blog/2012/04/15/github-pages-and-octpress/](http://ojima-h.github.com/blog/2012/04/15/github-pages-and-octpress/)
+* [http://cat.hackingisbelieving.org/blog/2012/08/14/how-to-install-octopress-on-your-github-pages/](http://cat.hackingisbelieving.org/blog/2012/08/14/how-to-install-octopress-on-your-github-pages/)
+* [http://gam0022.github.com/blog/2012/07/23/run-octpress-on-a-vps-using-rsync/](http://gam0022.github.com/blog/2012/07/23/run-octpress-on-a-vps-using-rsync/)
+* [http://octopress.org/docs/setup/](http://octopress.org/docs/setup/)
+----
