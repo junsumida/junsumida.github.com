@@ -341,4 +341,5 @@ git push origin source
 * [http://cat.hackingisbelieving.org/blog/2012/08/14/how-to-install-octopress-on-your-github-pages/](http://cat.hackingisbelieving.org/blog/2012/08/14/how-to-install-octopress-on-your-github-pages/)
 * [http://gam0022.github.com/blog/2012/07/23/run-octpress-on-a-vps-using-rsync/](http://gam0022.github.com/blog/2012/07/23/run-octpress-on-a-vps-using-rsync/)
 * [http://octopress.org/docs/setup/](http://octopress.org/docs/setup/)
+
 ----
