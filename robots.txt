@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://junsumida.github.io/sitemap.xml 

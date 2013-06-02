@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: linux | path to clean code]]></title>
+  <link href="http://junsumida.github.io/blog/categories/linux/atom.xml" rel="self"/>
+  <link href="http://junsumida.github.io/"/>
+  <updated>2013-06-02T12:33:18+09:00</updated>
+  <id>http://junsumida.github.io/</id>
+  <author>
+    <name><![CDATA[junsumida]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[FedoraでUSB HDDをマウント]]></title>
+    <link href="http://junsumida.github.io/blog/2013/03/02/mounting-usb-hdd-on-fedora/"/>
+    <updated>2013-03-02T21:53:00+09:00</updated>
+    <id>http://junsumida.github.io/blog/2013/03/02/mounting-usb-hdd-on-fedora</id>
+    <content type="html"><![CDATA[<p>ホームサーバーとしてFedoraを使っているのですが、サーバーとしてインストールするとデフォルトでは自動でマウントしてくれないので、自分でマウントする必要があります。</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;mountしたいデバイスがどこに繋がっているかを確認するため、syslog daemonが出力しているログを参照します&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;tail -f /var/log/messages&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;sdb1と表示されていたら、&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;mount /media/usb-hdd /dev/sdb1
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<blockquote><p><a href="http://www.tooljp.com/linux/faq/1285E01679D0B05549257A1A0053BEC4.html">dmesg と/var/log/messages の違いは</a>
+<a href="http://oshiete.goo.ne.jp/qa/740165.html">ハードディスク増設方法を教えて下さい</a></p></blockquote>
+]]></content>
+  </entry>
+  
+</feed>

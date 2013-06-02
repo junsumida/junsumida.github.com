@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: rails | path to clean code]]></title>
+  <link href="http://junsumida.github.io/blog/categories/rails/atom.xml" rel="self"/>
+  <link href="http://junsumida.github.io/"/>
+  <updated>2013-06-02T12:33:18+09:00</updated>
+  <id>http://junsumida.github.io/</id>
+  <author>
+    <name><![CDATA[junsumida]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Rails 3 ActiveRecordでNOT NULLする方法]]></title>
+    <link href="http://junsumida.github.io/blog/2012/11/23/not-null-in-activerecord/"/>
+    <updated>2012-11-23T21:45:00+09:00</updated>
+    <id>http://junsumida.github.io/blog/2012/11/23/not-null-in-activerecord</id>
+    <content type="html"><![CDATA[<p>ActiveRecordでNOT NULLを使う方法。</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">ModelName</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="nb">id</span> <span class="no">IS</span> <span class="no">NOT</span> <span class="no">NULL</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;)</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>ただし、Squeelというライブラリを使うと、
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Foo</span><span class="o">.</span><span class="n">includes</span><span class="p">{</span><span class="n">bar</span><span class="p">}</span><span class="o">.</span><span class="n">where</span><span class="p">{</span><span class="n">bars</span><span class="o">.</span><span class="n">id</span> <span class="o">!=</span> <span class="kp">nil</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+のようにして書くことができるらしい。</p>
+
+<hr />
+
+<h4>works cited:</h4>
+
+<ul>
+<li><a href="http://stackoverflow.com/questions/10539502/selecting-distinct-where-not-null-in-mysql">rail 3 where condition using NOT NULL</a></li>
+</ul>
+
+
+<hr />
+]]></content>
+  </entry>
+  
+</feed>
