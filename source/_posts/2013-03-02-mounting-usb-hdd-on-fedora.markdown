@@ -3,7 +3,7 @@ layout: post
 title: "FedoraでUSB HDDをマウント"
 date: 2013-03-02 21:53
 comments: true
-categories:linux
+categories : linux
 ---
 
 ホームサーバーとしてFedoraを使っているのですが、サーバーとしてインストールするとデフォルトでは自動でマウントしてくれないので、自分でマウントする必要があります。
